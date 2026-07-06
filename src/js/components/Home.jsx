@@ -1,27 +1,32 @@
 import React from "react";
 
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
+ 
 //create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-            
+const Home = ({counter}) => {
+	
+	const unidad = counter % 10;
+	const decena = Math.floor(counter / 10) % 10;
+	const centena = Math.floor(counter / 100) % 10;
+	const unidadMillar = Math.floor(counter / 1000) % 10gi;
+	const decenaMillar = Math.floor(counter / 10000) % 10;
+	const centenaMillar = Math.floor(counter / 100000) % 10;
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
+	return (
+            <div className="d-flex justify-content-center mt-5">
+    		<div className="d-flex bg-dark p-2">
+			<div className="bg-dark text-white p-3 m-1 d-flex justify-content-center align-items-center">
+    		<i className="fa-solid fa-clock"></i>
+			</div>
+			<p className="bg-dark text-white p-3 m-1">{centenaMillar}</p>
+			<p className="bg-dark text-white p-3 m-1">{decenaMillar}</p>
+			<p className="bg-dark text-white p-3 m-1">{unidadMillar}</p>
+			<p className="bg-dark text-white p-3 m-1">{centena}</p>
+			<p className="bg-dark text-white p-3 m-1">{decena}</p>
+			<p className="bg-dark text-white p-3 m-1">{unidad}</p>
+  
+			</div>	
+			</div>
 	);
 };
 
